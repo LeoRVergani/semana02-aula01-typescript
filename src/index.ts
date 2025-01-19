@@ -1,18 +1,35 @@
-import express from 'express';
+function calcularInss(salarioBruto: number){
 
-const app = express();
-app.use(express.json());
+    let inss = 0
 
-interface RequestBody {
-    name: string;
+    if(salarioBruto > 4000.04) {
+        inss = salarioBruto * 14 / 100
+    } else if (salarioBruto > 2666.69) {
+        inss = salarioBruto * 12 / 100
+    } else if (salarioBruto > 1412.01) {
+        inss = salarioBruto * 9 / 100
+    } else {
+        inss = salarioBruto * 7.5 / 100
+    }
+
+    if(inss > 908.85) inss = 908.85
+
+    return inss
 }
 
-app.post('/', (request, response) => {
-    const user = request.body as RequestBody;
+function Irrf (salarioBruto: number){
 
-    return response.send({
-        message: `Hello ${user.name}`,
-    });
-});
+    let irrf: number = 0
 
-app.listen(3000, () => console.log('Listening 3000'));
+    if(salarioBruto > 4664.68) {
+        irrf = salarioBruto * 27.5 / 100
+    } else if (salarioBruto > 3751.06) {
+        irrf = salarioBruto * 22.5 / 100
+    } else if (salarioBruto > 2826.66) {
+        irrf = salarioBruto * 15 / 100
+    } else if (salarioBruto > 2112.01) {
+        irrf = salarioBruto * 7.5 / 100
+    }
+
+    return irrf
+}
