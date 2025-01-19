@@ -12,24 +12,25 @@ function calcularInss(salarioBruto: number){
         inss = salarioBruto * 7.5 / 100
     }
 
-    if(inss > 908.85) inss = 908.85
+    if(inss > 908.85) inss = 908.85;
 
-    return inss
+    return inss;
 }
 
-function Irrf (salarioBruto: number){
+function calcularImpostoDeRenda(renda: number): number {
+    if (renda <= 2112) return 0;
+    else if (renda <= 2826.65) return renda * 0.075;
+    else if (renda <= 3751.05) return renda * 0.15;
+    else if (renda <= 4664.68) return renda * 0.225;
+    else return renda * 0.275;
+};
 
-    let irrf: number = 0
-
-    if(salarioBruto > 4664.68) {
-        irrf = salarioBruto * 27.5 / 100
-    } else if (salarioBruto > 3751.06) {
-        irrf = salarioBruto * 22.5 / 100
-    } else if (salarioBruto > 2826.66) {
-        irrf = salarioBruto * 15 / 100
-    } else if (salarioBruto > 2112.01) {
-        irrf = salarioBruto * 7.5 / 100
-    }
-
-    return irrf
+function calcularSalarioLiquido(salarioBruto: number) {
+    const descontoInss = calcularInss(salarioBruto);
+    const descontoImpostoRenda = calcularImpostoDeRenda(salarioBruto);
+    return salarioBruto - descontoInss - descontoImpostoRenda
 }
+
+console.log(calcularImpostoDeRenda(4500))
+console.log(calcularInss(4500))
+console.log(calcularSalarioLiquido(4500))
