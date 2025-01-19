@@ -1,14 +1,19 @@
 import Calculadora from "./Calculadora";
+import Pessoa from "./Pessoa";
+
+// Precisa instanciar a classe
 
 const calculadora = new Calculadora()
+
+// Instanciando Pessoa
+
+const pessoa = new Pessoa("Leonardo", '123.456.789-00', 34, "M")
 
 calculadora.somar(10,12)
 console.log(calculadora.resultado)
 
-calculadora.multiplicar(100, 100)
-console.log(calculadora.resultado)
+// pessoa.setNome("Leonardo")
+console.log(pessoa.getNome())
 
-console.log(calculadora.somar(30, 30))
-
-console.log(calculadora.dividir(100, 0))
-console.log(calculadora.dividir(100, 100))
+// pessoa.setCpf("123.456.789-00")
+// console.log(pessoa.getCpf())

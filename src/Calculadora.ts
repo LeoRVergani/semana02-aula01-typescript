@@ -6,6 +6,11 @@ export default class Calculadora {
     resultado: number = 0
 
     // metodos
+
+    getResultado() {
+        return this.resultado
+    }
+
     somar(valorA: number, valorB: number) {
         this.resultado = valorA + valorB
         return this.resultado
