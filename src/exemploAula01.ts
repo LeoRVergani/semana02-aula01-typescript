@@ -89,12 +89,3 @@ adicionarFuncionario(3, "João", "QA", 25)
 registrarHoras(3, 8)
 registrarHoras(3, 6)
 
-// console.log(listaFuncionarios)
-
-// let total = calcularSalarioMensal(listaFuncionarios[0])
-// let inss = calcularInss(listaFuncionarios[0])
-
-// console.log(`Total do salário bruto: ${total}`)
-// console.log(`Total do INSS: ${inss}`)
-
-gerarRelatorioPagamento()
